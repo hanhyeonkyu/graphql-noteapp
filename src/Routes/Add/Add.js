@@ -17,7 +17,7 @@ export default class Add extends React.Component {
       <Mutation mutation={ADD_NOTE}>
         {createNote => {
           this.createNote = createNote;
-          return <Editor onSave={this._onSave} />;
+          return <Editor onSave={this._onSave} goback={this._goback} />;
         }}
       </Mutation>
     );
@@ -30,5 +30,11 @@ export default class Add extends React.Component {
       this.createNote({ variables: { title, content } });
       push("/");
     }
+  };
+  _goback = () => {
+    const {
+      history: { push }
+    } = this.props;
+    push("/");
   };
 }

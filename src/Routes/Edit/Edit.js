@@ -32,6 +32,7 @@ export default class Edit extends React.Component {
                     content={data.note.content}
                     id={data.note.id}
                     onSave={this._onSave}
+                    goback={this._goback}
                   />
                 );
               }}
@@ -47,7 +48,13 @@ export default class Edit extends React.Component {
     } = this.props;
     if (title !== "" && content !== "" && id) {
       this.editNote({ variables: { title, content, id } });
-      push("/nomad-notes/");
+      push("/");
     }
+  };
+  _goback = () => {
+    const {
+      history: { push }
+    } = this.props;
+    push("/");
   };
 }

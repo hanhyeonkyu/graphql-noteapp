@@ -43,8 +43,6 @@ export default class Editor extends React.Component {
     };
   }
 
-  _goback = () => {};
-
   render() {
     const { title, content } = this.state;
     return (
@@ -83,5 +81,9 @@ export default class Editor extends React.Component {
     const { onSave } = this.props;
     const { title, content, id } = this.state;
     onSave(title, content, id);
+  };
+  _goback = () => {
+    const { goback } = this.props;
+    goback();
   };
 }
