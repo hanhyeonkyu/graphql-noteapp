@@ -16,9 +16,12 @@ const Title = styled.h1`
   font-size: 50px;
   margin: 0;
   padding: 0;
+  margin-right: auto;
 `;
 
-const Button = styled.button``;
+const Button = styled.button`
+  margin-right: 10px;
+`;
 
 export default class Note extends React.Component {
   render() {
@@ -34,6 +37,9 @@ export default class Note extends React.Component {
             <>
               <TitleComponent>
                 <Title>{data.note && data.note.title}</Title>
+                <Link to={`/`}>
+                  <Button>Back</Button>
+                </Link>
                 <Link to={`/edit/${data.note.id}`}>
                   <Button>Edit</Button>
                 </Link>
